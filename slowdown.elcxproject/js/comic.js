@@ -300,6 +300,14 @@ var CreateDigitalComic = function(options) {
   //timer that controls next page based on last tap
   var lastTap = null;
 
+  var tapConfig={
+    intervalCutoff: {
+      goBack: 2000,
+      detour: 5000
+    },
+    hasDetour: [4,6,7,9]
+  }
+
   //find out when user last tapped the screen, and optionally update
   //the marker to the current time after doing so
   //
@@ -319,10 +327,20 @@ var CreateDigitalComic = function(options) {
     return interval;
   }
 
-  //simple impl to get started. If you don't click within 1second, go back to start
+  //if you don't click within 2 seconds on main line, you go back to start
+  //but if the panel has a "detour", and you click in >5s, you go down the detour
+  //
+  //so there's a tension: need to keep clicking to progress main narrative, but slow 
+  //down to get the "explanations"
   var calculateNextStep = function(currentStep){
     var interval = lastTapInterval(true);
-    if (interval > 1000){
+    var currId = currentStep.id;
+    var onMainLine = currId.startsWith("step-main-");
+    var detourIndex = (onMainLine) ? parseInt(currId.substring(10)) : -1
+    var hasDetour = onMainLine && tapConfig.hasDetour.indexOf(detourIndex) != -1;
+    if (hasDetour && interval > tapConfig.intervalCutoff.detour){
+      return "step-detour"+detourIndex+"-1";
+    }else if (onMainLine && interval > tapConfig.intervalCutoff.goBack){
       return "step-1";
     }else{
       return null;  
