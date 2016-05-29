@@ -17,13 +17,13 @@
     },
     "creators": [
         {
-            "name": "",
-            "role": ""
+            "name": "Dave Crane",
+            "role": "script, art, code"
         }
     ],
-    "publish_date": "01/01/1970",
+    "publish_date": "29/05/2016",
     "slug": "electricomics-comic",
-    "summary": "",
-    "title": "Electricomics Comic",
+    "summary": "Simple test electricomic using custom javascript to advance between panels based on time since last click. Find out what went down between Fred and Elsie, and what everyone's opinion on the matter is.",
+    "title": "Why Elsie didn't want to sit next to Fred anymore",
     "version": 1
 }
