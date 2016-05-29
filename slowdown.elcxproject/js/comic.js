@@ -296,6 +296,41 @@ var CreateDigitalComic = function(options) {
     navToStep('prev');
   };
 
+  //--- timer code --------------------------------
+  //timer that controls next page based on last tap
+  var lastTap = null;
+
+  //find out when user last tapped the screen, and optionally update
+  //the marker to the current time after doing so
+  //
+  //the default Hammer impl here will call Electricomic.nextStep(), which looks at
+  //the current step's "next" attribute, and goes to next step in linear sequence
+  //if it can't find it. We can manipulate the next attribute in order to control
+  //the flow
+  var lastTapInterval = function(doUpdate){
+    var interval = 0;
+    var now = new Date();
+    if (lastTap){
+      interval = now - lastTap;
+    }
+    if (doUpdate){
+      lastTap = now;
+    }
+    return interval;
+  }
+
+  //simple impl to get started. If you don't click within 1second, go back to start
+  var calculateNextStep = function(currentStep){
+    var interval = lastTapInterval(true);
+    if (interval > 1000){
+      return "step-1";
+    }else{
+      return null;  
+    }
+  }
+
+
+
   // Hammer
   var mc = new Hammer.Manager(document.body);
   var initHammer = function() {
@@ -308,7 +343,13 @@ var CreateDigitalComic = function(options) {
         navToStep('prev');
       }
       else {
-        navToStep('next');
+        var currentStep = comic.getStep();
+        var nextStep = calculateNextStep(currentStep);
+        if (nextStep){
+          navToStep('goto', nextStep);
+        }else{
+          navToStep('next');
+        }
       }
     });
   };
