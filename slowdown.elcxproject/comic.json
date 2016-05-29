@@ -1,0 +1,29 @@
+{
+    "config": {
+        "buttons": [
+            {
+                "action": "elcx:toggleAudio",
+                "type": "sound"
+            },
+            {
+                "action": "elcx:hint",
+                "type": "hint"
+            }
+        ],
+        "features": [
+            "tap"
+        ],
+        "orientation": "landscape"
+    },
+    "creators": [
+        {
+            "name": "",
+            "role": ""
+        }
+    ],
+    "publish_date": "01/01/1970",
+    "slug": "electricomics-comic",
+    "summary": "",
+    "title": "Electricomics Comic",
+    "version": 1
+}

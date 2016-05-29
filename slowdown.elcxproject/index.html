@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" class="vh-bottom">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="expires" content="-1">
+  <meta http-equiv="expires" content="-1">
+  <meta name="robots" content="noindex">
+  <title>Electricomics Comic</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<ec-curtains>
+  <div class="loading">loading</div>
+  <div class="start">tap to start</div>
+</ec-curtains>
+
+<ec-comic id="comic" style="width:1024px; height:768px;">
+  <ec-page id="step-1" class="step">
+    <ec-panel id="panel-1-1" style="width:768px; height:768px; left:0px; top:0px; z-index:1;">
+      <img src="images/black_white1_1.jpg-tile-0.jpg">
+    </ec-panel>
+  </ec-page>
+  <ec-page id="step-2" class="step">
+    <ec-panel id="panel-2-1" style="width:768px; height:768px; left:0px; top:0px; z-index:1;">
+      <img src="images/black_white1_1.jpg-tile-1.jpg">
+    </ec-panel>
+  </ec-page>
+  <ec-page id="step-3" class="step">
+    <ec-panel id="panel-3-1" style="width:768px; height:768px; left:0px; top:0px; z-index:1;">
+      <img src="images/black_white1_1.jpg-tile-2.jpg">
+    </ec-panel>
+  </ec-page>
+  <ec-page id="step-4" class="step">
+    <ec-panel id="panel-4-1" style="width:768px; height:768px; left:0px; top:0px; z-index:1;">
+      <img src="images/black_white1_2.jpg-tile-0.jpg">
+    </ec-panel>
+  </ec-page>
+</ec-comic>
+
+
+<script src="js/electricomics.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/hammer.min.js"></script>
+<script src="js/raf.js"></script>
+<script src="js/picturefill.min.js"></script>
+<script src="js/comic.js"></script>
+
+<script>
+/* global CreateDigitalComic */
+var comicJSON = {
+  storage: false,
+  zoom: false,
+  id: 'sunwheel-slowdown',
+  width: 1024,
+  height: 768,
+  transitionIn: 'normal',
+  transitionOut: 'normal'
+};
+var comic;
+
+window.onload = function() {
+  comic = new CreateDigitalComic(comicJSON);
+  comic.start();
+
+  window.onresize = function() {
+    requestAnimationFrame(comic.resize);
+  };
+};
+</script>
+
+</body>
+</html>
