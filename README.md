@@ -19,3 +19,26 @@ The reader is hurried through the main story here - wait more than 2 seconds on 
 What other ways could we play with the fact that our e-comic has an in-built clock? Could a panel start to morph, or add extra layers, as time passes? What effect would that have on the reading experience?
 
 Images used in this strip are repurposed from [the Exhibition "What Is Home?"](https://improvisedcomics.co.uk/category/what_is_home/), first shown at Kendal YWCA during the [Lakes International Comic Art Festival 2015](http://www.comicartfestival.com/), and returning in 2016 with a few new bells and whistles! All proceeds from the exhibition go to charity (Kendal YWCA).
+
+## Technical Support
+The only way to read this comic is to use the Electricomics reading apps. (If you choose to install it to read my comics, then thank you, I'm honoured - you'll also get to access a lot of other good free content. Look out for Tzvi Lebetkin & Lars Schwed Nygard & Torgeir Trapnes works, just to name two.)
+
+### Desktop/Laptop computers
+You can download a desktop electricomics reader app [right here](https://github.com/electricomics/web-reader/releases) - it'll work with Windows, Mac and Linux systems (i.e. pretty much any computer)
+
+### Ipad
+The ipad app can be found on the Apple app store
+
+On either app, enter the following URL into the import feature
+
+https://github.com/DaveTheCrane/slowdown/blob/master/slowdown.elcxproject.elcx?raw=true
+
+or use this shortcut
+
+https://goo.gl/l6AtN5
+
+Happy reading!
+
+Dave Crane
+Stroud, UK
+http://improvisedcomics.co.uk
